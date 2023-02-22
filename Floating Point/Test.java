@@ -38,5 +38,9 @@ public class Test {
     if (flag2) {
         System.out.println( "HiEven" );
     }
+    else {
+        System.out.println( "Hmm" );
+
+    }
     }
 }
