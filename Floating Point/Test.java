@@ -31,11 +31,13 @@ public class Test {
     boolean flag5 = answer%5 == 0;
     boolean flag2 = answer%2 == 0;
 
-
-    if (flag5) {
+    // | forces both statements to be calculated
+    // but || if the first statement is true does not 
+    // calculate the second statement
+    if (flag5 || flag2) {
         System.out.println( "HiFive" );
     }
-    if (flag2) {
+    if (flag2 ^ flag5) {
         System.out.println( "HiEven" );
     }
     else {
