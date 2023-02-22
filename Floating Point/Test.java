@@ -44,5 +44,6 @@ public class Test {
         System.out.println( "Hmm" );
 
     }
+        System.out.printf( "some  %b", flag5 );
     }
 }
