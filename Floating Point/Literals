@@ -1,0 +1,12 @@
+# literals
+
+defaults to double
+
+float :
+100.2F / 100.2f
+
+convert to double:
+100.2D / 100.2d
+
+namad: 
+1.23456e-2 
