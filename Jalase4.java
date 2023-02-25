@@ -4,6 +4,29 @@ import java.util.Scanner;
 public class Jalase4 {
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
+        String s="\n";
+        int correctCounter=0;
+        int numCounter=5;
+        long startTime = System.currentTimeMillis();
+        
+        while (numCounter > 0) {
+            int num1 = (int) (Math.random()*21);
+            int num2 = (int) (Math.random()*21);
+            s+="what is " + num1 + " + " + num2 + "? ";
+            System.out.print ("what is " + num1 + " + " + num2 + "? : ");
+            int answer = input.nextInt();
+            if (answer == num1 + num2)
+                s+=answer + " is correct\n";
+            else
+                s+=answer + " is not correct\n";
+
+            numCounter--;
+        }
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        System.out.print ( s+ "duration: " + duration/1000);
+
+        /*
         int num = (int) (Math.random()*101);
         int guess=-1;
         while (guess != num) {
@@ -17,7 +40,7 @@ public class Jalase4 {
                 System.out.print ("your guess was higher than what we randomely generated ");
                 else 
                     System.out.print ("your guess was just right ");
-            
+        /*    
 
         }
         /*int count=0;
