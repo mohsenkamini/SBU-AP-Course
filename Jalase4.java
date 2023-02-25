@@ -4,7 +4,20 @@ import java.util.Scanner;
 public class Jalase4 {
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
-        int sentinel=0;
+        int answer= input.nextInt();;
+        char sign='*';
+        int i=1;
+        while (i <= answer) {
+            int j=1;       
+            while  (j <= i) {
+                System.out.print (sign);
+                j++;
+            }
+            System.out.print ("\n");
+            i++;
+
+        }
+        /*int sentinel=0;
         int sum=0 , answer=1;
         while (answer != sentinel){
             answer = input.nextInt();
@@ -12,7 +25,7 @@ public class Jalase4 {
             
         }
         System.out.print ("Sum is " + sum);
-
+        */
         /*String s="\n";
         int correctCounter=0;
         int numCounter=5;
