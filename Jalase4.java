@@ -4,7 +4,16 @@ import java.util.Scanner;
 public class Jalase4 {
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
-        String s="\n";
+        int sentinel=0;
+        int sum=0 , answer=1;
+        while (answer != sentinel){
+            answer = input.nextInt();
+            sum+=answer;
+            
+        }
+        System.out.print ("Sum is " + sum);
+
+        /*String s="\n";
         int correctCounter=0;
         int numCounter=5;
         long startTime = System.currentTimeMillis();
@@ -25,7 +34,7 @@ public class Jalase4 {
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         System.out.print ( s+ "duration: " + duration/1000);
-
+        */
         /*
         int num = (int) (Math.random()*101);
         int guess=-1;
