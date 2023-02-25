@@ -4,7 +4,23 @@ import java.util.Scanner;
 public class Jalase4 {
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
-        int answer= input.nextInt();;
+        int n1=0 , n2=1 ,n3=0;
+        do {
+            n3=n1+n2;
+            n1=n2;
+            n2=n3;
+            System.out.print (n1 + " ");
+        } while (n3 < 100);
+
+
+        /*
+        while (item != 0) {
+            sum+=item;
+            item-=0.1;
+        }
+        System.out.print (sum);
+        */
+        /*int answer= input.nextInt();;
         char sign='*';
         int i=1;
         while (i <= answer) {
@@ -17,6 +33,7 @@ public class Jalase4 {
             i++;
 
         }
+        /*
         /*int sentinel=0;
         int sum=0 , answer=1;
         while (answer != sentinel){
