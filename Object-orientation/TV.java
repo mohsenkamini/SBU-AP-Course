@@ -1,7 +1,7 @@
 public class TV {
-    boolean status;
-    int channel;
-    int volume;
+    private boolean status;
+    private int channel;
+    private int volume;
 
     TV(){
         status=true;
@@ -24,7 +24,7 @@ public class TV {
     }
     
     void setStatus (boolean st){
-        Status=st;
+        status=st;
     }
     
     int getChannel (){
@@ -42,5 +42,19 @@ public class TV {
     void incChannel () {
         if (status=true && channel+1 <= 100)
             channel++;
+    }
+    public static void main (String[] args) {
+        TestTV.main();
+    }
+}
+
+class TestTV {
+    public static void main () {
+        TV tv1 = new TV();
+        for (int i =0; i < 120 ; i++)
+        {
+            tv1.incChannel();
+            System.out.println(tv1.getChannel());
+        }
     }
 }
