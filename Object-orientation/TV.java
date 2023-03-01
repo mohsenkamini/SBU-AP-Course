@@ -38,5 +38,9 @@ public class TV {
     boolean getStatus (){
         return status;
     }
-       
+    
+    void incChannel () {
+        if (status=true && channel+1 <= 100)
+            channel++;
+    }
 }
