@@ -59,6 +59,52 @@ public class SBUsTreasure {
         }
         return result;
     }
+
+    public static String translateE (String str) {
+        char ch='E';
+        String result="";
+        boolean flag=false;
+
+        for (int i=0 ; i < str.length() ; i++)
+        {
+            if (str.charAt(i) == ch && !flag )
+            {
+                flag=true;
+                i++;
+                for (int j = str.length()-1 ; j >= i ; j--)
+                    result+=str.charAt(j);
+                break;
+            }
+            else
+                result += str.charAt(i);
+        }
+        return result;
+    }
+    public static String translateO (String str) {
+        char ch='O';
+        String result="";
+        boolean flag=false;
+
+        for (int i=0 ; i < str.length() ; i++)
+        {
+            if (str.charAt(i) == ch && !flag )
+            {
+                flag=true;
+                i++;
+                for (; i < str.length() ; i++)
+                    switch (str.charAt(i)) {
+                        case 'L':
+                            result += 'R';
+                            break;
+                        default:
+                            result += str.charAt(i);
+                    }
+            }
+            else
+                result += str.charAt(i);
+        }
+        return result;
+    }
     /*
     public static String translateMRecursive (String str) {
         String result=str;
@@ -76,7 +122,7 @@ public class SBUsTreasure {
         Scanner input = new Scanner (System.in);
         String str = input.next();
 
-        System.out.println(translateD(str));
+        System.out.println(translateO(str));
 
     }
 }
