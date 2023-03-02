@@ -105,6 +105,80 @@ public class SBUsTreasure {
         }
         return result;
     }
+
+    public static int translateDegree (char command,int currentDegree) {
+        int limit=360;
+        switch (command) {
+            case 'l':
+                currentDegree+=45;
+                break;
+            case 'L':
+                currentDegree+=90;
+                break;
+            case 'r':
+                currentDegree-=45;
+                break;
+            case 'R':
+                currentDegree-=90;
+                break;
+            default:
+                System.out.println("NOT A VALID COMMAND");
+        }
+        if (currentDegree >= limit)
+            currentDegree-=limit;
+        
+        if (currentDegree < 0)
+            currentDegree+=limit;
+        return currentDegree;
+    }
+
+    public static String move (int x, int y, int degree) {
+        switch (degree) {
+            case 0:
+                x++;
+                break;
+            case 45:
+                x++;
+                y++;
+                break;
+            case 90:
+                y++;
+                break;
+            case 135:
+                x--;
+                y++;
+                break;
+            case 180:
+                x--;
+                break;
+            case 270:
+                y--;
+                break;
+            case 315:
+                x++;
+                y--;
+                break;
+            default:
+                System.out.println("NOT A VALID DEGREE");
+        }
+        return x + " " + y;
+    }
+    public static boolean health (String str) {
+        String checkAgainst="ERROR";
+        String start="",end="";
+        boolean result=true;
+        for (int i=0 ; i < checkAgainst.length() ; i++)
+        {
+            start += str.charAt(i);
+        }
+        for (int i=str.length()-1 ,int j=0; j < checkAgainst.length() ; i--,j++)
+        {
+            start += str.charAt(i);
+        }
+        if (start == checkAgainst || end == checkAgainst )
+            result=false;
+        return result;
+    }
     /*
     public static String translateMRecursive (String str) {
         String result=str;
@@ -121,6 +195,7 @@ public class SBUsTreasure {
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
         String str = input.next();
+        int x=0,y=0,currentDegree=90;
 
         System.out.println(translateO(str));
 
