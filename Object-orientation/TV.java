@@ -51,10 +51,12 @@ public class TV {
 class TestTV {
     public static void main () {
         TV tv1 = new TV();
+        TV tv3 = tv1;
         for (int i =0; i < 120 ; i++)
         {
             tv1.incChannel();
             System.out.println(tv1.getChannel());
         }
+        System.out.println("\n" +tv3.getChannel());
     }
 }
