@@ -2,12 +2,13 @@ import java.util.Scanner;
 public class SBUsTreasure {
 
     public static String translateM (String str) {
+        char ch='M';
         String result="";
         String tmp="";
         boolean flag=false;
         for (int i=0 ; i < str.length() ; i++)
         {
-            if (str.charAt(i) == 'M' && !flag )
+            if (str.charAt(i) == ch && !flag )
             {
                 flag=true;
                 i++;
@@ -21,6 +22,41 @@ public class SBUsTreasure {
             }
         }
         result += tmp;
+        return result;
+    }
+
+    public static String translateD (String str) {
+        char ch='D';
+        String result="";
+        boolean flag=false;
+
+        for (int i=0 ; i < str.length() ; i++)
+        {
+            if (str.charAt(i) == ch && !flag )
+            {
+                flag=true;
+                i++;
+                for (; i < str.length() ; i++)
+                    switch (str.charAt(i)) {
+                        case 'L':
+                            result += 'l';
+                            break;
+                        case 'l':
+                            result += 'L';
+                            break;
+                        case 'R':
+                            result += 'r';
+                            break;
+                        case 'r':
+                            result += 'R';
+                            break;
+                        default:
+                            result += str.charAt(i);
+                    }
+            }
+            else
+                result += str.charAt(i);
+        }
         return result;
     }
     /*
@@ -40,7 +76,7 @@ public class SBUsTreasure {
         Scanner input = new Scanner (System.in);
         String str = input.next();
 
-        System.out.println(translateM(str));
+        System.out.println(translateD(str));
 
     }
 }
