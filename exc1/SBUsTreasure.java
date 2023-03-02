@@ -122,7 +122,7 @@ public class SBUsTreasure {
                 currentDegree-=90;
                 break;
             default:
-                System.out.println("NOT A VALID COMMAND");
+                System.out.println(command + "IS NOT A VALID COMMAND");
         }
         if (currentDegree >= limit)
             currentDegree-=limit;
@@ -132,42 +132,16 @@ public class SBUsTreasure {
         return currentDegree;
     }
 
-    public static String move (int x, int y, int degree) {
-        switch (degree) {
-            case 0:
-                x++;
-                break;
-            case 45:
-                x++;
-                y++;
-                break;
-            case 90:
-                y++;
-                break;
-            case 135:
-                x--;
-                y++;
-                break;
-            case 180:
-                x--;
-                break;
-            case 270:
-                y--;
-                break;
-            case 315:
-                x++;
-                y--;
-                break;
-            default:
-                System.out.println("NOT A VALID DEGREE");
-        }
-        return x + " " + y;
-    }
+
     public static boolean health (String str) {
         String checkAgainst="ERROR";
         String start="";
         String end="";
         boolean result=true;
+
+        if (str.length() < checkAgainst.length())
+            return true;
+
         for (int i=0 ; i < checkAgainst.length() ; i++)
         {
             start += str.charAt(i);
@@ -216,27 +190,70 @@ public class SBUsTreasure {
         for (int i=0 ; i < str.length() ; i++)
         {
             switch (str.charAt(i)) {
-                case 'R','r','L','l':
+                case 'R':
+                case 'r':
+                case 'L':
+                case 'l':
                     currentDegree = translateDegree(str.charAt(i),currentDegree);
                     break;
 
                 case 'M':
                     str = translateM(str);
+                    i--;
                     break;
                 
                 case 'D':
                     str = translateD(str);
+                    i--;
                     break;
                 
                 case 'E':
                     str = translateE(str);
+                    i--;
                     break;
                     
                 case 'O':
-                    str = translateM(str);
+                    str = translateO(str);
+                    i--;
+                    break;
+                
+                case 'G':
+                    switch (currentDegree) {
+                        case 0:
+                            x++;
+                            break;
+                        case 45:
+                            x++;
+                            y++;
+                            break;
+                        case 90:
+                            y++;
+                            break;
+                        case 135:
+                            x--;
+                            y++;
+                            break;
+                        case 180:
+                            x--;
+                            break;
+                        case 225:
+                            x--;
+                            y--;
+                            break;
+                        case 270:
+                            y--;
+                            break;
+                        case 315:
+                            x++;
+                            y--;
+                            break;
+                        default:
+                            System.out.println(currentDegree + " IS NOT A VALID DEGREE");
+                        }
                     break;
             }
         }
-        System.out.println("currentDegree: " + currentDegree + "\n str: " + str);
+        //System.out.println("currentDegree: " + currentDegree + "\nstr: " + str + "\nx: " + x + " y: " + y );
+        System.out.println(x + " " + y );
     }
 }
