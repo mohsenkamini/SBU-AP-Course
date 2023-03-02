@@ -165,17 +165,27 @@ public class SBUsTreasure {
     }
     public static boolean health (String str) {
         String checkAgainst="ERROR";
-        String start="",end="";
+        String start="";
+        String end="";
         boolean result=true;
         for (int i=0 ; i < checkAgainst.length() ; i++)
         {
             start += str.charAt(i);
         }
-        for (int i=str.length()-1 ,int j=0; j < checkAgainst.length() ; i--,j++)
+        for (int i=str.length()-checkAgainst.length() ;  i < str.length() ; i++)
         {
-            start += str.charAt(i);
+            end += str.charAt(i);
         }
-        if (start == checkAgainst || end == checkAgainst )
+        /*
+        System.out.println(start);
+        System.out.println(end);
+        System.out.println(checkAgainst);
+        System.out.println(start.equals(checkAgainst));
+        System.out.println(end.equals(checkAgainst));
+        */
+        if (start.equals(checkAgainst))
+            result=false;
+        if  (end.equals(checkAgainst))
             result=false;
         return result;
     }
@@ -197,7 +207,36 @@ public class SBUsTreasure {
         String str = input.next();
         int x=0,y=0,currentDegree=90;
 
-        System.out.println(translateO(str));
+        if (! health (str))
+        {
+            System.out.println("Fake!");
+            return;
+        }
 
+        for (int i=0 ; i < str.length() ; i++)
+        {
+            switch (str.charAt(i)) {
+                case 'R','r','L','l':
+                    currentDegree = translateDegree(str.charAt(i),currentDegree);
+                    break;
+
+                case 'M':
+                    str = translateM(str);
+                    break;
+                
+                case 'D':
+                    str = translateD(str);
+                    break;
+                
+                case 'E':
+                    str = translateE(str);
+                    break;
+                    
+                case 'O':
+                    str = translateM(str);
+                    break;
+            }
+        }
+        System.out.println("currentDegree: " + currentDegree + "\n str: " + str);
     }
 }
