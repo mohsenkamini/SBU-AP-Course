@@ -50,7 +50,11 @@ public class TV {
 
 class TestTV {
     public static void main () {
+        //              new object
+        //            |
         TV tv1 = new TV();
+        // |
+        // refrence var
         TV tv3 = tv1;
         for (int i =0; i < 120 ; i++)
         {
