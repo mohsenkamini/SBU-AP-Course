@@ -22,7 +22,13 @@ class testBook {
             array[i]=array[i+1];
         array[array.length-1]=0;
     }
-
+    public static int[] reverseArray (int[] array) 
+    {
+        int [] newArray = new int[array.length];
+        for (int i=array.length-1; i >= 0 ; i--)
+            newArray[i]=array[array.length-i-1];
+        return newArray;
+    }
     public static void arrayShiftRight (int[] array)
     {
         for (int i= array.length-1 ; i > 0 ; i--)
@@ -79,6 +85,14 @@ class testBook {
 
         for (int value: array1) 
             System.out.print(value+ " ");
+        System.out.println("\nReverse: ");
+        int [] reverse = reverseArray(array1);
+        for (int value: reverse )
+            System.out.print(value+ " ");
+
+        int m[]= new int[reverse.length];
+        System.arraycopy(reverse,0,m,0,reverse.length);
+                            //   (src,from_index,dst,from_index_dst,how_many)
             
     }    
 }
