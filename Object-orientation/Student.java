@@ -16,6 +16,7 @@ public class Student {
     }
     void display () {
         System.out.println("Student's name: " + name + " ID: " + sid);
+        System.out.println(this);
     }
     public static void main (String[] args) {
         TestStudent.main();
@@ -31,6 +32,7 @@ class TestStudent {
         
         Student mohsen = new Student();
         mohsen.display();
+        System.out.println(mohsen);
 
         Student [] sList = new Student[sNumber];
 
