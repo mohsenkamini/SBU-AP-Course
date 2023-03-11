@@ -11,6 +11,9 @@ public class Student {
         this.name=name;
         this.sid=sid;
     }
+    Student () {
+        this("mamad",90);   // calls the two input constructor
+    }
     void display () {
         System.out.println("Student's name: " + name + " ID: " + sid);
     }
@@ -26,7 +29,7 @@ class TestStudent {
 
         int sNumber = input.nextInt();
         
-        Student mohsen = new Student("mohsen",98);
+        Student mohsen = new Student();
         mohsen.display();
 
         Student [] sList = new Student[sNumber];
