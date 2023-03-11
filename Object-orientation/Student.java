@@ -3,9 +3,13 @@ public class Student {
     private String name;
     private int sid;
 
-    Student (String n , int id) {
-        name=n;
-        sid=id;
+    //Student (String n , int id) {
+    //    name=n;
+    //    sid=id;
+    //}
+    Student (String name , int sid) {
+        this.name=name;
+        this.sid=sid;
     }
     void display () {
         System.out.println("Student's name: " + name + " ID: " + sid);
@@ -21,6 +25,9 @@ class TestStudent {
         Scanner input = new Scanner (System.in);
 
         int sNumber = input.nextInt();
+        
+        Student mohsen = new Student("mohsen",98);
+        mohsen.display();
 
         Student [] sList = new Student[sNumber];
 
