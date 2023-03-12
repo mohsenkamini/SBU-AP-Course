@@ -31,31 +31,49 @@ public class ExceptOnePair {
         }
         return result;
     }
-    public static int[] getPairResults (int[] array, int crossPairIndex) {
+    //public static int[] getPairResults (int[] array, int crossPairIndex) {
+    public static int getPairResults (int[] array, int crossPairIndex) {
         /*This method supposes the pairs are next to each other in the array
           meaning array[0] and array[1] are pairs and so on ... */
 
-        int[] result = new int[array.length/2];
+        //int[] result = new int[array.length/2];
+        int result =0;
         for (int i=0 ; i < array.length ; i+=2)
         {
             if (i/2 == crossPairIndex)
-                result[i/2] = array[i]*array[i+1];
+                //result[i/2] = array[i]*array[i+1];
+                result += array[i]*array[i+1];
             else
-                result[i/2] = getMaxPairDivide(array[i],array[i+1]);
+                //result[i/2] = getMaxPairDivide(array[i],array[i+1]);
+                result += getMaxPairDivide(array[i],array[i+1]);
         }
         return result;
     }
-    public static int sumOfArray (int[] array) {
+    //public static int sumOfArray (int[] array) {
+    //    int result=0;
+    //    for (int i =0 ; i < array.length ; i++)
+    //        result+=array[i];
+    //    return result;
+    //}
+    public static int maxPairResult (int[] array) {
+        /*This method recieves a paired array as 
+          input and outputs the max sum possible. */
         int result=0;
-        for (int i =0 ; i < array.length ; i++)
-            result+=array[i];
+        int temp;
+        for (int i=0 ; i < array.length/2 ; i++) {
+            temp=getPairResults(array,i);
+            if (result < temp)
+                result=temp;
+        }
         return result;
+
     }
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
         int size = input.nextInt();
         int array[] = inputFillArrayInt(size);
         int pairedArray[] = pairMethod1(array);
+        System.out.println(maxPairResult(pairedArray)); // the rigth answer to method1  
         printArray(pairedArray);
 
 
