@@ -60,19 +60,19 @@ public class Bbad {
                     return true;
         return false;
     }
-    public static long convertString_BinaryToDec (String s) {
-        long result=0;
-        for (int i = s.length()-1 ; i >=0 ; i--)
-            if (s.charAt(i)== '1')
-                result += (Math.pow(2,s.length() - i - 1 ));
-        return result;
-    }
+    //public static long convertString_BinaryToDec (String s) {
+    //    long result=0;
+    //    for (int i = s.length()-1 ; i >=0 ; i--)
+    //        if (s.charAt(i)== '1')
+    //            result += (Math.pow(2,s.length() - i - 1 ));
+    //    return result;
+    //}
     public static boolean isSeafood (String s) {
         if (checkForBinary(s))
             if (!checkForLetters(s))
                 if (!checkForNoBinary(s))
                     if (s.charAt(0) == '1')
-                        if (convertString_BinaryToDec(s) % 4 == 0)
+                        if (s.charAt(s.length()-1) == '0' && s.charAt(s.length()-2) == '0')
                             return true;
         return false;
     }
