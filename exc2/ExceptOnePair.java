@@ -19,7 +19,8 @@ public class ExceptOnePair {
     public static int getMaxPairDivide (int n1, int n2) {
         int result = n1/n2;
         if (result < n2/n1)
-            result = n2/1;
+            result = n2/n1;
+        //System.out.println("n1: " + n1 + " n2: " + n2 + " result: "+ result);
         return result;
     }
     public static int[] pairMethod1 (int[] array) {
@@ -66,7 +67,33 @@ public class ExceptOnePair {
                 result=temp;
         }
         return result;
-
+    }
+    public static void bubble_sort (int[] array,int size) {
+        if (size == 0)
+            return;
+        for (int i =0 ; i < size-1 ; i++)
+        {
+            if (array[i+1] < array[i])
+            {
+                // swap
+                int temp = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temp;
+            }
+        }
+        bubble_sort(array,size-1);
+    }
+    public static int getMethod2Result (int[] array) {
+        int result=0;
+        bubble_sort(array,array.length);
+        int temp[] = new int[array.length-2];
+        System.arraycopy(array,0,temp,0,array.length-2);
+                            //   (src,from_index,dst,from_index_dst,how_many)
+        result += array[array.length-1] * array[array.length-2] ;
+        int tempPaired[] = pairMethod1(temp);
+        //printArray(tempPaired);
+        result += getPairResults(tempPaired,-1); // -1 means there are no * actions and only divides
+        return result;
     }
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
@@ -74,8 +101,8 @@ public class ExceptOnePair {
         int array[] = inputFillArrayInt(size);
         int pairedArray[] = pairMethod1(array);
         System.out.println(maxPairResult(pairedArray)); // the rigth answer to method1  
-        printArray(pairedArray);
-
+        //printArray(pairedArray);
+        System.out.println(getMethod2Result(pairedArray));
 
     }
 }
