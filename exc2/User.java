@@ -37,13 +37,19 @@ public class User {
     public static void printEmailUsername (String s) {
         for (int i=0 ; s.charAt(i)!='@' ; i++)
             System.out.print(s.charAt(i));
+        System.out.println("");
     }
     public static User[] incrementArraySize (User[] source) {
         User[] copy = new User[source.length + 1];
         System.arraycopy(source, 0, copy, 0, source.length);
         return copy;
     }
-
+    public static int searchUsername (User[] list, String username){
+        for (int i=0; i < list.length-1 ; i++)
+            if (list[i].username.equals(username))
+                return i;
+        return -1;
+    }
     public static void main (String[] args) {
         Scanner input = new Scanner (System.in);
         User[] list = new User[1];
@@ -66,7 +72,16 @@ public class User {
             }
             else if (command.equals("Log in"))
             {
-
+                String tempUsername = input.nextLine();
+                String tempPassword = input.nextLine();
+                int searchIndex = searchUsername(list,tempUsername);
+                if (searchIndex != -1 ) 
+                    if (tempPassword.equals(list[searchIndex].password))
+                        printEmailUsername(list[searchIndex].email);
+                    else
+                        System.out.println("Wrong password");
+                else
+                    System.out.println("Not found");
             }
         } while (input.hasNextLine());
         //list[0] = new User ("mohsen0","123123123","mohsen@gmail.com");
