@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class ExceptOnePair {
 
 
-    public static int[] inputFillArrayInt (int size) {
-        Scanner input = new Scanner (System.in);
-        int result[] = new int [size];
-        for (int i=0 ; i < size ; i++)
-            result[i] = input.nextInt();
-        return result;
-            
-    }
+    //public static int[] inputFillArrayInt (int size) {
+    //    //Scanner input = new Scanner (System.in);
+    //    int result[] = new int [size];
+    //    for (int i=0 ; i < size ; i++)
+    //        result[i] = scanner.nextInt();
+    //    return result;
+    //        
+    //}
     public static void printArray (int[] array) {
         for (int i=0 ; i< array.length ; i++)
             System.out.print(array[i] + " ");
@@ -205,13 +205,20 @@ public class ExceptOnePair {
         return result;
     }
     public static void main (String[] args) {
-        Scanner input = new Scanner (System.in);
-        int size = input.nextInt();
-        int array[] = inputFillArrayInt(size);
+        Scanner scanner = new Scanner (System.in);
+        int size = scanner.nextInt();
+        if (size == 0)
+        {
+            System.out.println("0\n0");
+            return;
+        }   
+        int array[] = new int [size];
+        for (int i=0 ; i < size ; i++)
+            array[i] = scanner.nextInt();
+        //int array[] = inputFillArrayInt(size);
         int pairedArray[] = pairMethod1(array);
         System.out.println(maxPairResult(pairedArray)); // the rigth answer to method1  
         //printArray(pairedArray);
         System.out.println(getMethod2Result(pairedArray));
-        //System.out.println("0\n0");
     }
 }
