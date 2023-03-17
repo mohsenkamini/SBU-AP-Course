@@ -32,15 +32,55 @@ public class Bank {
                 checksum += temp;
         }
         checksum = (10 - (checksum % 10)) % 10;
-        System.out.println(checksum);
+        //System.out.println(checksum);
         if (checksum == s.charAt(s.length()-1) - '0')
             result=true;
         return result;
     }
+    public static String encrypt (String s) {
+        String result="";
+        char temp=s.charAt(0);
+        int counter=0;
+        for (int i=0 ; i < s.length() ; i++)
+        {
+            if (temp != s.charAt(i))
+            {
+                result += (char)(temp - '0' + 96);
+                //System.out.println(result);
+                result += counter;
+                temp=s.charAt(i);
+                counter=1;
+            }
+            else
+                counter++;
+            if (i == s.length() - 1 )
+            {
+                result += (char)(temp - '0' + 96);
+                result += counter;
+            }
+            
+        }
+        return result;
+    }
     public static void main (String[] args) {
+        Scanner input = new Scanner (System.in);
+        String s = input.nextLine();
+        if (checkURL(s))
+        {
+            String CCNumber = s.substring(s.lastIndexOf("/")+1);
+            if (lunCheck(CCNumber))
+            {
+                System.out.println(s.substring(0,s.lastIndexOf("/"))+'/'+encrypt(CCNumber));
+            }
+            else
+                System.out.println("Invalid credit card number.");
 
-        System.out.println(checkURL("Mellat:www.rb24.ir/4111111111111111"));
-        System.out.println(sumOfDigits(9,2));
-        System.out.println(lunCheck("4333"));
+        }
+        else
+            System.out.println("This URL is uncorrect!");
+
+        //System.out.println(checkURL("Mellat:www.rb24.ir/4111111111111111"));
+        //System.out.println(sumOfDigits(9,2));
+        //System.out.println(lunCheck("4333"));
     }
 }
