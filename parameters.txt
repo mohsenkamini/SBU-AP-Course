@@ -1,0 +1,6 @@
+String Name
+String Model
+String Color
+int ConstructionYear
+String numberPlate
+String RentalPrice

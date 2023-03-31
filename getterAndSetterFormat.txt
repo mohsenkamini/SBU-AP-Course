@@ -1,0 +1,6 @@
+    public void set{CPARAMETER}({TYPE} {PARAMETER}) {
+        this.{PARAMETER}={PARAMETER};
+    }
+    public String get{CPARAMETER}() {
+        return this.{PARAMETER};
+    }
