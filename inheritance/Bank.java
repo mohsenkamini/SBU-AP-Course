@@ -24,6 +24,9 @@ class Maskan extends Bank {
     }
 }
 class BankTest {
+    // static methods are bind to class
+    // dynamic methods are bind to objects and we
+    // can override them.
     public static void main() {
         Bank b1 = new Bank();       
         System.out.println(b1.getRateOfInterest());
