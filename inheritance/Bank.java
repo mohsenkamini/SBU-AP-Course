@@ -27,6 +27,8 @@ class BankTest {
     // static methods are bind to class
     // dynamic methods are bind to objects and we
     // can override them.
+    //
+    // only public methods from parent are inhertable
     public static void main() {
         Bank b1 = new Bank();       
         System.out.println(b1.getRateOfInterest());
@@ -39,6 +41,7 @@ class BankTest {
 
         Bank b4 = new Maskan();
         System.out.println(b4.getRateOfInterest());
+        System.out.println(b1.toString());
         
     }
 }
