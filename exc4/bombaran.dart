@@ -8,12 +8,12 @@ bool checkArray (List list) {
 main () {
   
   int n = int.parse(stdin.readLineSync()!);
-  List list=List.empty();
+  List list=List.empty(growable: true);
 
-  for (int i=1 ; i < n ; i++)
+  for (int i=0 ; i < n ; i++)
   {
     String? tempInput=stdin.readLineSync();
-    List tempParams = layouts!.split(' ');
+    List tempParams = tempInput!.split(' ');
     list.add(tempInput);
   }
   print(list);
