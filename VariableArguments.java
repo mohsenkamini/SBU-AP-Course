@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class VariableArguments {
     public static int sum (int ... values) {
@@ -39,10 +40,38 @@ public class VariableArguments {
         al1.add("Mani");
         al1.add("MohsenMani");
         al1.add("Mohammad Mohsen");
-        for (int i=0 ; i < al1.length; i++)
-            System.out.println(al1[i]);
-        Iterator
-            
+        System.out.println(al1.indexOf("mehdi"));
+        //for (int i=0 ; i < al1.length; i++)
+        //    System.out.println(al1[i]);
         
+        
+        Student s1 = new Student(98,"mohsen");
+        Student s2 = new Student(99,"mohsen1");
+        Student s3 = new Student(100,"mohsen2");
+
+        ArrayList<Student> sList = new ArrayList<Student> ();
+        sList.add(s1);
+        sList.add(s2);
+        sList.add(s3);
+        
+        Iterator itr = sList.iterator();
+        while (itr.hasNext()) {
+            ((Student)(itr.next())).display();
+        }
+
+        
+    }
+}
+class Student {
+    private int SID;
+    private String name;
+
+    public Student (int SID,String name) {
+        this.name=name;
+        this.SID=SID;
+    }
+    public void display() {
+        System.out.println(this.name);
+        System.out.println(this.SID);
     }
 }
