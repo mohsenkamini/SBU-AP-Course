@@ -1,3 +1,4 @@
-int Cash 
-String FullName
-String ID
+String name
+Bank bank
+String wealth
+int ID
