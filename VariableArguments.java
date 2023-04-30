@@ -31,8 +31,8 @@ public class VariableArguments {
         display("mohsen");
         display("mosen","is");
         display("mosen","is", "the" , "best");
-        int[] a = {1,10,3,4,5};
-        int location = Arrays.binarySearch(a,2);
+        int[] a = {1,2,3,4,5};
+        int location = Arrays.binarySearch(a,3);
         System.out.println(location);
 
         ArrayList<String> al1 = new ArrayList<String>() ;

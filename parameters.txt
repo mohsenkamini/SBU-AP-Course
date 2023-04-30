@@ -1,4 +1,2 @@
-String name
-Bank bank
-String wealth
-int ID
+int score
+int price
