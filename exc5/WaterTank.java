@@ -1,30 +1,30 @@
 import java.util.Scanner;
 public class WaterTank {
-    static int capacity (int[] array) {
+    static int calculateCapacity(int[] array){
         int result=0;
-        int startIndex=0;
-        int max=array[0];
-        for (int i=1 ; i < array.length ; i++) {
-            if ((i == array.length-1 )&& (array[i] < max))
-            {
-                for (int j=startIndex+1 ; j < i; j++ )
-                {
-                    result -= max - array[j] ;
-                    if (array[i]-array[j] > 0)
-                        result+=array[i]-array[j];
-                }
-            }
-            else 
-            {   
-                if (array[i] >= array[startIndex]) {
-                    startIndex=i;
-                    max=array[i];
-                }
-                else result += max - array[i];
-            }
-        }
+        for (int i=1; i < array.length-1 ; i++)
+            result+=columnCapacity(array, i);
         return result;
     }
+    static int columnCapacity (int[] array,int index) {
+        int result=0;
+        int leftMax=array[0];
+        int rightMax=array[array.length-1];
+        for (int i=index ; i < array.length ; i++)
+            if (rightMax<array[i])
+                rightMax=array[i];
+
+        for (int i=index ; i >= 0 ; i--)
+            if (leftMax<array[i])
+                leftMax=array[i];
+        
+        if (leftMax<rightMax)
+            result+=leftMax-array[index];
+        else result+=rightMax-array[index];
+
+        return result;
+    }
+    
     public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
         
@@ -38,7 +38,7 @@ public class WaterTank {
         for (int i=0 ; i < n ; i++)
             array[i] = input.nextInt();
         try {
-            System.out.println(capacity (array));
+            System.out.println(calculateCapacity (array));
         }
         catch (ArrayIndexOutOfBoundsException a) {
             System.out.println(0);
