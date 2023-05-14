@@ -205,15 +205,15 @@ class Danish_Pastry extends Creamy_Pastry{
     
     void addCustomerBasket(int amount) {
         this.CustomerBasket+=amount;
-        this.CreamyBalance+=(125000*amount);
+        this.DanishBalance+=(125000*amount);
     }
     int getBalance() {
-        return this.CreamyBalance;
+        return this.DanishBalance;
     }
     void removeCustomerBasket(int amount) //remove Cookies balance in each class  
     {
         this.CustomerBasket-=amount;
-        this.CreamyBalance-=(125000*amount);
+        this.DanishBalance-=(125000*amount);
     }
     String setCandySyrup(int amount) {
         int min=9,max=15;
@@ -253,15 +253,15 @@ class Napoleon_Pastry extends Creamy_Pastry {
     
     void addCustomerBasket(int amount) {
         this.CustomerBasket+=amount;
-        this.CreamyBalance+=(130000*amount);
+        this.NapoleonBalance+=(130000*amount);
     }
     int getBalance() {
-        return this.CreamyBalance;
+        return this.NapoleonBalance;
     }
     void removeCustomerBasket(int amount) //remove Cookies balance in each class  
     {
         this.CustomerBasket-=amount;
-        this.CreamyBalance-=(130000*amount);
+        this.NapoleonBalance-=(130000*amount);
     }
     public String toString () {
         String s = "" ;
