@@ -64,10 +64,6 @@ public class LyricsRepository {
             {
                 data = Files.readAllLines(Paths.get(files[i].getAbsolutePath())).get(0);
                 tmp=data.split(" - ");
-                //artistDir =new File (destinationFile+"/"+tmp[0]);
-                
-                //System.out.println(artistDir.getAbsolutePath());
-                //System.out.println(tmp[0]);
                 
                 switch(tmp.length) {
                     case 3:
@@ -75,8 +71,6 @@ public class LyricsRepository {
                         albumDir =new File (artistDir+"/"+tmp[1]);
                         albumDir.mkdirs();
                         dst= new File(albumDir+"/"+tmp[2]+".txt");
-                        // FileUtils.copyFile(files[i].getAbsolutePath(), dst);
-                        // System.out.println(files[i].getAbsolutePath());
                         System.out.println(dst.getAbsolutePath());
                         copyFileUsingStream(files[i], dst);
                         break;
@@ -85,7 +79,6 @@ public class LyricsRepository {
                         albumDir =new File (artistDir+"/"+"(Single)");
                         albumDir.mkdirs();
                         dst= new File(albumDir+"/"+tmp[1]+".txt");
-                        // FileUtils.copyFile(files[i].getAbsolutePath(), dst);
                         copyFileUsingStream(files[i], dst);
                         break;
                     default:
