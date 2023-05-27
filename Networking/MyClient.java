@@ -1,0 +1,24 @@
+import java.io.*;
+import java.net.*;
+
+public class MyClient {
+    public static void main (String[] args){
+        try {
+            Socket s = new Socket ("localhost",6666);     // establish connection
+            DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+            DataInputStream din = new DataInputStream(s.getInputStream());
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            String str = "",str2="";
+            while (!str.equals("stop")) {
+                str2=br.readLine();
+                dout.writeUTF(str);
+                dout.flush();
+                str2=din.readUTF();
+                System.out.println("server says: "+ str2);
+            }
+            dout.close();
+            s.close();
+        } catch (Exception a) {System.out.println(a);}
+    }
+}

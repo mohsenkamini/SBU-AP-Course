@@ -2,7 +2,7 @@ public class Player {
     String name;
     Cards[] cards = new Cards[5];
 
-    public boolean findCard(CardRanks cardRanks, CardTypes cardTypes) {
+    public boolean findCard(CardRanks cardRanks, CardTypes cardTypes) throws CardNotFoundException  {
         for (int i=0 ; i < this.cards.length ; i++)
             if (cardRanks == cards[i].cardRank  && cardTypes == cards[i].cardType)
                 return true;

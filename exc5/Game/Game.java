@@ -3,24 +3,23 @@ public class Game {
 
     static Cards currentCard= new Cards();
 
-    public static void removeCard(String name, String cardRank, String cardType ) {
-        for (int i=0 ; i < players.length ; i++)
-            if (players[i].name.equals(name))
-                for (int j=0 ; j < players[i].cards.length ; j++)
-                    if (players[i].findCard(convertToRank(cardRank),convertToType(cardType)))
+    // public static void removeCard(String name, String cardRank, String cardType ) {
+    //     // for (int i=0 ; i < players.length ; i++)
+    //         // if (players[i].name.equals(name))
+    //             // for (int j=0 ; j < players[i].cards.length ; j++)
+    //                 // if (players[i].findCard(Cards.convertToRank(cardRank),Cards.convertToType(cardType)));
 
 
-    }
+    // }
 
     public static void play(String name, String cardRank, String cardType, boolean extraMove) {
-
     }
 
     public static void play(String name, String cardRank, String cardType, boolean extraMove, int extraMoveNum,
                             String newCardRank, String newCardType) {
         
-        if (convertToType(cardType.equals) != currentCard.cardType)
-           throw new NotSameTypeException("your card type is different with the main type.");
+        // if (Cards.convertToType(cardType.equals) != currentCard.cardType)
+        //    throw new NotSameTypeException("your card type is different with the main type.");
                             
 
     }
@@ -34,7 +33,7 @@ public class Game {
         // TODO
     }
 
-    public static void extraMove(Cards card, int extraMove, String newCardRank, String newCardType) {
+    public static void extraMove(Cards card, int extraMove, String newCardRank, String newCardType)  {
         switch(extraMove) {
             case 2:
                 break;
@@ -53,8 +52,18 @@ class NotSameTypeException extends java.lang.Exception {
     }
 }
   
-class NotSameTypeException extends java.lang.Exception {
-    NotSameTypeException(String s) {
+class NotAvailableMoveException extends java.lang.Exception {
+    NotAvailableMoveException(String s) {
+        super(s);
+    }
+}
+class AdvantageException extends java.lang.Exception {
+    AdvantageException(String s) {
+        super(s);
+    }
+}
+class CardNotFoundException extends java.lang.Exception {
+    CardNotFoundException(String s) {
         super(s);
     }
 }

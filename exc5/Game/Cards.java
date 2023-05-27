@@ -11,62 +11,51 @@ public class Cards {
         this.cardType = cardType;
     }
 
-    public static CardTypes convertToType(String cardType) throws TypeNotFoundException {
+    public static CardTypes convertToType(String cardType)  {
+        // public static CardTypes convertToType(String cardType) throws TypeNotFoundException {
         switch(cardType) {
             case "red":
-                return Red;
-                break;
+                return CardTypes.Red;
             case "blue":
-                return Blue;
-                break;
+                return CardTypes.Blue;
             case "black":
-                return  Black;
-                break;
+                return  CardTypes.Black;
             case "white":
-                return White;
-                break;
+                return CardTypes.White;
             default:
-                throw new TypeNotFoundException("this type of card has not declared.");
-                break;
+                return CardTypes.White;
+            // throw new TypeNotFoundException("this type of card has not declared.");
+
 
         }
     }
 
-    public static CardRanks convertToRank(String cardRank) throws RankNotFoundException {
+    public static CardRanks convertToRank(String cardRank)  {
+        // public static CardRanks convertToRank(String cardRank) throws RankNotFoundException {
         switch (cardRank) {
-            case 1: 
-                return One;
-                break;
-            case 2: 
-                return Two;
-                break;
-            case 3: 
-                return Three;
-                break;
-            case 4: 
-                return Four;
-                break;
-            case 5: 
-                return Five;
-                break;
-            case 6: 
-                return Six;
-                break;
-            case 7: 
-                return Seven;
-                break;
-            case 8: 
-                return Eight;
-                break;
-            case 9: 
-                return Nine;
-                break;
-            case 10: 
-                return Ten;
-                break;
+            case "1": 
+                return CardRanks.One;
+            case "2": 
+                return CardRanks.Two;
+            case "3": 
+                return CardRanks.Three;
+            case "4": 
+                return CardRanks.Four;
+            case "5": 
+                return CardRanks.Five;
+            case "6": 
+                return CardRanks.Six;
+            case "7": 
+                return CardRanks.Seven;
+            case "8": 
+                return CardRanks.Eight;
+            case "9": 
+                return CardRanks.Nine;
+            case "10": 
+                return CardRanks.Ten;
             default:
-                throw new RankNotFoundException("this rank of card has not declared.");
-                break;
+                return CardRanks.Ten;
+                // throw new RankNotFoundException("this rank of card has not declared.");
         }
     }
 }

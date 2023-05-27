@@ -58,7 +58,7 @@ public class Intro {
         int aByte = file.read();
         System.out.println((char)(aByte));
         System.out.println(file.getFilePointer());
-        file.append("ehem".getBytes());
+        file.;
         file.close();
 
 
