@@ -22,10 +22,6 @@ public class LyricsRepository {
         }
     }
 
-    public static void main (String[] args) {
-        LyricsRepository lr = new LyricsRepository("./secrets","./l_out/");
-        lr.run();
-    }
     public FileFilter fileFilter = new FileFilter() {
         @Override
         public boolean accept(File pathname) {
