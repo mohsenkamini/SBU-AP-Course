@@ -40,14 +40,16 @@ public class DigiShop {
     }
 
     public synchronized void buyProduct(String productName, int count) throws ProductDoesNotExists, InventoryNotEnoughException, InventoryEmptyException, InsufficientBalanceException, NotLoginException  {
-        if (!Product.name.contains(productName))
-            throw new ProductDoesNotExists("");
-        if ( Integer.parseInt(Product.inventory.get(Product.name.indexOf(productName))) < 1 )
-            throw new InventoryEmptyException("");
-        if ( Integer.parseInt(Product.inventory.get(Product.name.indexOf(productName))) < count )
-            throw new InventoryNotEnoughException("");
-        if ( Integer.parseInt(Product.inventory.get(Product.name.indexOf(productName))) > Integer.parseInt(Account.balance.get(Account.username.indexOf(accountUsername))) )
-            throw new InsufficientBalanceException("");
+        try {
+            if (!Product.name.contains(productName))
+                throw new ProductDoesNotExists("");
+            if ( Integer.parseInt(Product.inventory.get(Product.name.indexOf(productName))) < 1 )
+                throw new InventoryEmptyException("");
+            if ( Integer.parseInt(Product.inventory.get(Product.name.indexOf(productName))) < count )
+                throw new InventoryNotEnoughException("");
+            if ( Integer.parseInt(Product.inventory.get(Product.name.indexOf(productName))) > Integer.parseInt(Account.balance.get(Account.username.indexOf(accountUsername))) )
+                throw new InsufficientBalanceException("");
+        } catch (IndexOutOfBoundsException a) {};
         if (this.isLoggedIn == false)
             throw new NotLoginException("");
         
